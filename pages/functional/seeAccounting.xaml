@@ -1,0 +1,120 @@
+﻿<Page x:Class="PP_PM02_Koshenskiy.pages.functional.seeAccounting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PP_PM02_Koshenskiy.pages.functional"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="seeAccounting">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="0"
+                    Grid.Column="0">
+            <TextBlock Text="Сортировать по дате:"/>
+            <ComboBox Name="cbDateSorter"
+                      Width="250"
+                      SelectionChanged="cbDateSorter_SelectionChanged">
+                <ComboBoxItem Content="Не сортировать"/>
+                <ComboBoxItem Content="По возрастанию"/>
+                <ComboBoxItem Content="По убыванию"/>
+            </ComboBox>
+        </StackPanel>
+        <TextBlock Text="Чтобы дополнить/изменить запись, используйте двойной щелчок:"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="3"
+                   HorizontalAlignment="Left"/>
+        <ListView x:Name="lvRequest"
+                  MouseDoubleClick="lvRequest_MouseDoubleClick"
+                  Grid.Row="2"
+                  Grid.ColumnSpan="3"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="\resource\nodata.png"
+                               Grid.RowSpan="7"
+                               Grid.Row="1"/>
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="3"
+                                    Grid.Row="1">
+                            <TextBlock Text="Серийный номер: "/>
+                            <TextBlock Text="{Binding Request.serial_number}"/>
+                            <TextBlock Text=" | "/>
+                            <TextBlock Text="Цена: "/>
+                            <TextBlock Text="{Binding repair_price}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="3"
+                                    Grid.Row="3">
+                            <TextBlock Text="Мастер: "/>
+                            <TextBlock Text="{Binding Wizard.last_name}"/>
+                            <TextBlock Text=" | "/>
+                            <TextBlock Text="Телефон: "/>
+                            <TextBlock Text="{Binding Wizard.phone}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="3"
+                                    Grid.Row="5">
+                            <TextBlock Text="Приоритет: "/>
+                            <TextBlock Text="{Binding Priority.name}"/>
+                            <TextBlock Text=" | "/>
+                            <TextBlock Text="Статус: "/>
+                            <TextBlock Text="{Binding Status.name}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="3"
+                                    Grid.Row="7">
+                            <TextBlock Text="Описание проблемы: "/>
+                            <TextBlock Text="{Binding Request.problem_description}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="bAdd"
+                Click="bAdd_Click"
+                Content="Добавить запись"
+                Grid.Column="0"
+                Grid.Row="3"/>
+        <Button x:Name="bGoBack"
+                Click="bGoBack_Click"
+                Content="Вернуться"
+                Grid.Column="1"
+                Grid.Row="3"/>
+        <Button x:Name="bDelete"
+                Click="bDelete_Click"
+                Content="Удалить запись"
+                Grid.Column="2"
+                Grid.Row="3"/>
+    </Grid>
+</Page>

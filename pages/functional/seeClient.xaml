@@ -1,0 +1,82 @@
+﻿<Page x:Class="PP_PM02_Koshenskiy.pages.functional.seeClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PP_PM02_Koshenskiy.pages.functional"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="seeClient">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="55"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Чтобы отредактировать запись, используйте двойной щелчок:"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="3"
+                   HorizontalAlignment="Left"/>
+        <ListView x:Name="lvClient"
+                  MouseDoubleClick="lvClient_MouseDoubleClick"
+                  Grid.Row="2"
+                  Grid.ColumnSpan="3"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="\resource\nodata.png"
+                               Grid.RowSpan="5"/>
+                        <StackPanel Orientation="Horizontal"
+                               Grid.Column="3"
+                               Grid.Row="1">
+                            <TextBlock Text="Фамилия и инициалы: "/>
+                            <TextBlock Text="{Binding last_name}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                               Grid.Column="3"
+                               Grid.Row="3">
+                            <TextBlock Text="Телефонный номер: "/>
+                            <TextBlock Text="{Binding phone}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="bAddClient"
+                Click="bAddClient_Click"
+                Content="Добавить клиента"
+                Grid.Column="0"
+                Grid.Row="3"/>
+        <Button x:Name="bGoBack"
+                Click="bGoBack_Click"
+                Content="Вернуться"
+                Grid.Column="1"
+                Grid.Row="3"/>
+        <Button x:Name="bDelete"
+                Click="bDelete_Click"
+                Content="Удалить клиента"
+                Grid.Column="2"
+                Grid.Row="3"/>
+    </Grid>
+</Page>
