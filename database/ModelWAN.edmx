@@ -397,7 +397,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="dbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="dbName" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounting" EntityType="Self.Accounting" />
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="Priority" EntityType="Self.Priority" />
@@ -441,7 +441,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище PM11_9ModelContainer" CdmEntityContainer="dbEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PM11_9ModelContainer" CdmEntityContainer="dbName">
           <EntitySetMapping Name="Accounting">
             <EntityTypeMapping TypeName="PM11_9Model.Accounting">
               <MappingFragment StoreEntitySet="Accounting">

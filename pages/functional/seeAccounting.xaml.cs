@@ -26,6 +26,9 @@ namespace PP_PM02_Koshenskiy.pages.functional
         {
             InitializeComponent();
 
+            bAdd.Visibility = Visibility.Hidden;
+            bDelete.Visibility = Visibility.Hidden;
+
             cbDateSorter.SelectedIndex = 0;
         }
 

@@ -13,10 +13,10 @@ namespace PP_PM02_Koshenskiy.database
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dbEntities : DbContext
+    public partial class dbName : DbContext
     {
-        public dbEntities()
-            : base("name=dbEntities")
+        public dbName()
+            : base("name=dbName")
         {
         }
     

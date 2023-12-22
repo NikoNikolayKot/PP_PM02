@@ -1,4 +1,5 @@
 ﻿using PP_PM02_Koshenskiy.classes;
+using PP_PM02_Koshenskiy.database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace PP_PM02_Koshenskiy.pages.functional
         public seeRequest(int logic)
         {
             InitializeComponent();
+
+            bDelete.Visibility = Visibility.Hidden;
 
             switch (logic)
             {
@@ -53,7 +56,8 @@ namespace PP_PM02_Koshenskiy.pages.functional
 
         private void lvRequest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            Request request = lvRequest.SelectedItem as Request;
+            NavigationService.Navigate(new editRequest(request));
         }
 
         private void tbSerialNumber_TextChanged(object sender, TextChangedEventArgs e)

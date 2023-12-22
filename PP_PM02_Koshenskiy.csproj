@@ -131,6 +131,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="pages\functional\editRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\functional\seeAccounting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,6 +177,9 @@
     </Compile>
     <Compile Include="pages\functional\editAccounting.xaml.cs">
       <DependentUpon>editAccounting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\functional\editRequest.xaml.cs">
+      <DependentUpon>editRequest.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\functional\seeAccounting.xaml.cs">
       <DependentUpon>seeAccounting.xaml</DependentUpon>
@@ -232,22 +239,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="database\ModelWAN.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelWAN.Context.cs</LastGenOutput>
-      <DependentUpon>ModelWAN.edmx</DependentUpon>
-    </Content>
-    <Content Include="database\ModelWAN.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelWAN.edmx</DependentUpon>
-      <LastGenOutput>ModelWAN.cs</LastGenOutput>
-    </Content>
     <Resource Include="resource\nodata.png" />
     <Resource Include="resource\logoImage.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="database\ModelWAN.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelWAN.edmx</DependentUpon>
+      <LastGenOutput>ModelWAN.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="database\ModelWAN.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelWAN.edmx</DependentUpon>
+      <LastGenOutput>ModelWAN.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

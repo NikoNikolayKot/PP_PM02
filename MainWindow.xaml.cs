@@ -31,7 +31,7 @@ namespace PP_PM02_Koshenskiy
         {
             InitializeComponent();
 
-            AppModel.dbModel = new database.dbEntities();
+            AppModel.dbModel = new database.dbName();
 
             fMain.NavigationService.Navigate(new mainDialog());
 

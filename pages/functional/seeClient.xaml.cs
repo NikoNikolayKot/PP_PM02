@@ -25,6 +25,9 @@ namespace PP_PM02_Koshenskiy.pages.functional
         {
             InitializeComponent();
 
+            bAddClient.Visibility = Visibility.Hidden;
+            bDelete.Visibility = Visibility.Hidden;
+
             lvClient.ItemsSource = AppModel.dbModel.Client.ToList();
         }
 
@@ -35,17 +38,17 @@ namespace PP_PM02_Koshenskiy.pages.functional
 
         private void bAddClient_Click(object sender, RoutedEventArgs e)
         {
-            //Бета
+
         }
 
         private void bDelete_Click(object sender, RoutedEventArgs e)
         {
-            //Бета
+
         }
 
         private void lvClient_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //Бета
+
         }
     }
 }
