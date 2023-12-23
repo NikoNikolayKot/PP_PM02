@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="classes\AppModel.cs" />
+    <Compile Include="classes\SumCompletedRequest.cs" />
     <Compile Include="database\Accounting.cs">
       <DependentUpon>ModelWAN.tt</DependentUpon>
     </Compile>
